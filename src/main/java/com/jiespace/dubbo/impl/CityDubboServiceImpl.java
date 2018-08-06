@@ -2,6 +2,7 @@ package com.jiespace.dubbo.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
+import com.codingapi.tx.annotation.TxTransaction;
 import com.jiespace.domain.City;
 import com.jiespace.domain.TestOrder;
 import com.jiespace.dubbo.CityDubboService;
@@ -22,7 +23,7 @@ public class CityDubboServiceImpl implements CityDubboService {
     @Autowired
     private CityDubboMapper cityDubboMapper;
 
-//    @TxTransaction
+    @TxTransaction
     @Transactional(isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public City findCityByName(String cityName) {
         TestOrder order = new TestOrder();
