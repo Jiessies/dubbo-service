@@ -31,7 +31,7 @@ public class CityDubboServiceImpl implements CityDubboService {
         order.setCreatetime(new Date());
         order.setOrderstatus(1);
         order.setOrderprice(100);
-        int flag = cityDubboMapper.insertOrder(order);
+        cityDubboMapper.insertOrder(order);
         return new City(1L,2L,cityName,"是我的故乡!!!!!!!");
     }
 }
